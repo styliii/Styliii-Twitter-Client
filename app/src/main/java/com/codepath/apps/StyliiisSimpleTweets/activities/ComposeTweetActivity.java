@@ -48,7 +48,7 @@ public class ComposeTweetActivity extends ActionBarActivity {
         etTweetBody = (EditText) findViewById(R.id.etTweetBody);
         Button btnTweet = (Button) findViewById(R.id.btnTweet);
 
-        tvHandle.setText(pref.getString("screen_name", ""));
+        tvHandle.setText("@" + pref.getString("screen_name", ""));
         tvUserName.setText(pref.getString("name", ""));
         Picasso.with(ComposeTweetActivity.this).load(pref.getString("profile_image_url", "")).into(ivProfileImage);
 

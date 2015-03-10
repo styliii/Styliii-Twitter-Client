@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.codepath.apps.StyliiisSimpleTweets.activities.ComposeTweetActivity"
+    android:layout_margin="15dp"
     android:id="@+id/composeActivity">
 
     <ImageView
@@ -21,18 +22,20 @@
         android:id="@+id/tvHandle"
         android:layout_alignTop="@+id/ivProfileImage"
         android:layout_toRightOf="@+id/ivProfileImage"
-        android:layout_toEndOf="@+id/ivProfileImage" />
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_marginLeft="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvUserName"
+        android:gravity="bottom"
         android:layout_alignBottom="@+id/ivProfileImage"
-        android:layout_toRightOf="@+id/ivProfileImage"
-        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_alignStart="@+id/tvHandle"
         android:layout_below="@+id/tvHandle"
-        android:gravity="bottom" />
+        android:textStyle="bold"
+        android:textSize="18dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -40,6 +43,7 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/etTweetBody"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/ivProfileImage"
         android:layout_alignLeft="@+id/ivProfileImage"
         android:layout_alignStart="@+id/ivProfileImage"
