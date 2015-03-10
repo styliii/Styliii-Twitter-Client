@@ -17,4 +17,4 @@ Completed User Stories
 Time Spent: 7 hours
 
 ## Walkthrough
-![app demo](./twitter_demo.gif.gif)
+![app demo](./twitter_demo.gif)
