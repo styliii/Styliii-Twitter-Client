@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codepath.apps.StyliiisSimpleTweets.activities.TimeLineActivity">
+    <item
+        android:id="@+id/miCompose"
+        android:icon="@drawable/ic_compose"
+        app:showAsAction="ifRoom"
+        android:onClick="launchComposeTweet"
+        android:title="Compose">
+    </item>
+</menu>

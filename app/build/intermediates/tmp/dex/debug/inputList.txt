@@ -1,0 +1,11 @@
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/classes/debug
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-cb5baef6d1c3de80cd76807d556f36089bd6f6f3.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/codepath-utils-0c3b2d662ffaac34c1d7914b1f31e2f89d63e2ee.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/codepath-oauth-0.4.1-23d1f90d089750dd38653f4a5896d12a86652dcf.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/activeandroid-3.1.0-SNAPSHOT-2b787215442d2ca62a88b47b01114474caf3fd11.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3-c961e9eaf96f0fcd4c54d576bd732749f49fc710.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.6-f33506fd422c0e060d8300d3e0039e2375a8c5b7.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-52a45ba0a08899f59c8a3c034c6d8279101a5235.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-e53ab7791e2c354aee0844494e8cb703db70ef45.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/classes-4f1adb3ea2b6cb61ced402c4e97fd171e02bed2b.jar
+/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/classes-77deb1e6a56a5d7071e21edf725339e74ef621f2.jar
