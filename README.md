@@ -13,6 +13,7 @@ Completed User Stories
 - [x] User can then enter a new tweet and post this to twitter
 - [x] User is taken back to home timeline with new tweet visible in timeline
 - [x] Tweets are persisted into sqlite and can be displayed from the local DB
+- [x] Advanced: User can refresh tweets timeline by pulling down to refresh (i.e pull-to-refresh)
 
 Time Spent: 7 hours
 
