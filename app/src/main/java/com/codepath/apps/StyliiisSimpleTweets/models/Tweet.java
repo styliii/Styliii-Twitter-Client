@@ -1,5 +1,7 @@
 package com.codepath.apps.StyliiisSimpleTweets.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.format.DateUtils;
 
 import com.activeandroid.Model;
@@ -17,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Table(name = "Tweets")
-public class Tweet extends Model {
+public class Tweet extends Model implements Parcelable {
     @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public long remoteId;
     @Column(name = "Body")
@@ -42,6 +44,11 @@ public class Tweet extends Model {
     public User getUser() {
         return user;
     }
+
+    public long getRemoteId() {
+        return remoteId;
+    }
+
     public String getBody() {
         return body;
     }
@@ -111,7 +118,7 @@ public class Tweet extends Model {
                 .execute();
     }
 
-    public static Tweet findById(int remoteId) {
+    public static Tweet findById(long remoteId) {
         Tweet tweet = null;
         if (tweet != null) {
             tweet = new Select().from(Tweet.class)
@@ -120,4 +127,34 @@ public class Tweet extends Model {
         }
         return tweet;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(this.remoteId);
+        dest.writeString(this.body);
+        dest.writeString(this.createdAt);
+        dest.writeParcelable(this.user, flags);
+    }
+
+    private Tweet(Parcel in) {
+        this.remoteId = in.readLong();
+        this.body = in.readString();
+        this.createdAt = in.readString();
+        this.user = in.readParcelable(User.class.getClassLoader());
+    }
+
+    public static final Parcelable.Creator<Tweet> CREATOR = new Parcelable.Creator<Tweet>() {
+        public Tweet createFromParcel(Parcel source) {
+            return new Tweet(source);
+        }
+
+        public Tweet[] newArray(int size) {
+            return new Tweet[size];
+        }
+    };
 }

@@ -19,11 +19,11 @@ import com.codepath.apps.StyliiisSimpleTweets.R;
 import com.codepath.apps.StyliiisSimpleTweets.TwitterApplication;
 import com.codepath.apps.StyliiisSimpleTweets.TwitterClient;
 import com.codepath.apps.StyliiisSimpleTweets.helpers.NetworkUtility;
+import com.codepath.apps.StyliiisSimpleTweets.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
 import org.apache.http.Header;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ComposeTweetActivity extends ActionBarActivity {
@@ -71,11 +71,8 @@ public class ComposeTweetActivity extends ActionBarActivity {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     Log.d("Debug", response.toString());
                     Intent data = new Intent();
-                    try {
-                        data.putExtra("tweetId", response.getString("id"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                    Tweet tweet = Tweet.findOrCreateFromJSONObject(response);
+                    data.putExtra("tweet", tweet);
                     setResult(RESULT_OK, data);
                     finish();
                 }

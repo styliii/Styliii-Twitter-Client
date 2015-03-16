@@ -104,25 +104,35 @@ public class TimeLineActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == NetworkUtility.getREQUEST_CODE()) {
-            Tweet tweet = Tweet.findById(Integer.parseInt(data.getStringExtra("tweetId")));
-
+            Tweet tweet = data.getParcelableExtra("tweet");
+            tweetsAdapter.addTweet(0, 0, tweet);
         }
     }
 
 
     public class TweetsPageAdapter extends FragmentPagerAdapter {
         private String tabTitles[] = {"Home", "Mentions"};
+        private HomeTimeLineFragment homeTimeLineFragment;
+        private MentionsTimeLineFragment mentionsTimeLineFragment;
 
         public TweetsPageAdapter(FragmentManager fm) {
             super(fm);
         }
 
+        public void addTweet(int tabPosition, int position, Tweet tweet) {
+            if (tabPosition == 0) {
+                homeTimeLineFragment.insert(tweet, position);
+            }
+        }
+
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                return new HomeTimeLineFragment();
+                homeTimeLineFragment =  new HomeTimeLineFragment();
+                return homeTimeLineFragment;
             } else if (position == 1 ) {
-                return new MentionsTimeLineFragment();
+                mentionsTimeLineFragment = new MentionsTimeLineFragment();
+                return mentionsTimeLineFragment;
             } else {
                 return null;
             }
