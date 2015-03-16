@@ -75,7 +75,6 @@ public class TimeLineActivity extends ActionBarActivity {
         }
     }
 
-
     public class TweetsPageAdapter extends FragmentPagerAdapter {
         private String tabTitles[] = {"Home", "Mentions"};
         private HomeTimeLineFragment homeTimeLineFragment;

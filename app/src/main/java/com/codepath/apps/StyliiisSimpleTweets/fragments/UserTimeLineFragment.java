@@ -47,7 +47,11 @@ public class UserTimeLineFragment extends TweetsListFragment {
             public void onLoadMore(int page, int totalItemsCount) {
                 Tweet last_tweet = getLastTweet();
                 Toast.makeText(getActivity(), "loading more now", Toast.LENGTH_SHORT).show();
-                populateTimeLine(screenName, last_tweet.remoteId);
+                if (last_tweet == null) {
+                    populateTimeLine(screenName, 0);
+                } else {
+                    populateTimeLine(screenName, last_tweet.getRemoteId());
+                }
             }
         });
 
@@ -58,6 +62,8 @@ public class UserTimeLineFragment extends TweetsListFragment {
     private void populateTimeLine(String screenName, long last_id) {
         if (last_id == 0) {
             clear();
+        } else {
+            showProgressBar();
         }
         if (NetworkUtility.isNetworkAvailable(getActivity())) {
             client.getUserTimeline(screenName, last_id, new JsonHttpResponseHandler() {
@@ -65,6 +71,7 @@ public class UserTimeLineFragment extends TweetsListFragment {
                 public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                     addAll(Tweet.fromJSONArray(response));
                     swipeContainer.setRefreshing(false);
+                    hideProgressBar();
                 }
 
                 @Override
@@ -72,12 +79,14 @@ public class UserTimeLineFragment extends TweetsListFragment {
                     Toast.makeText(getActivity(), errorResponse.toString(), Toast.LENGTH_SHORT).show();
                     addAll(Tweet.getAll());
                     swipeContainer.setRefreshing(false);
+                    hideProgressBar();
                 }
             });
         } else {
             addAll(Tweet.getAll());
             Toast.makeText(getActivity(), "Network is not available", Toast.LENGTH_SHORT).show();
             swipeContainer.setRefreshing(false);
+            hideProgressBar();
         }
 
     }
