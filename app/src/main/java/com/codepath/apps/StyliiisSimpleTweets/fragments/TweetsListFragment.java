@@ -35,7 +35,6 @@ public class TweetsListFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-
     public void addAll(List<Tweet> tweets) {
         aTweets.addAll(tweets);
     }
@@ -47,4 +46,10 @@ public class TweetsListFragment extends Fragment {
     public void insert(Tweet tweet, int position) {
         aTweets.insert(tweet, position);
     }
+
+    public Tweet getLastTweet(){
+        return tweets.get(tweets.size() - 1);
+    }
+
+
 }

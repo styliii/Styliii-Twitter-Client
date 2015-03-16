@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +18,6 @@ import com.codepath.apps.StyliiisSimpleTweets.helpers.NetworkUtility;
 import com.codepath.apps.StyliiisSimpleTweets.models.Tweet;
 
 public class TimeLineActivity extends ActionBarActivity {
-    private SwipeRefreshLayout swipeContainer;
     private TweetsPageAdapter tweetsAdapter;
 
     @Override
@@ -38,42 +36,10 @@ public class TimeLineActivity extends ActionBarActivity {
         tabStrip.setViewPager(vpPager);
     }
 
-
-
-////        lvTweets.setOnScrollListener(new EndlessScrollListener() {
-////            @Override
-////            public void onLoadMore(int page, int totalItemsCount) {
-////                Tweet last_tweet = tweets.get(tweets.size() - 1);
-////                populateTimeLine(last_tweet.remoteId);
-////            }
-////        });
-////        setupSwipeContainer();
-//    }
-
     public void onProfileView(MenuItem mi) {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
-
-//    private void setupSwipeContainer() {
-//        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
-//        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                // Your code to refresh the list here.
-//                // Make sure you call swipeContainer.setRefreshing(false)
-//                // once the network request has completed successfully.
-//                populateTimeLine(0);
-//            }
-//        });
-//        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-//                android.R.color.holo_green_light,
-//                android.R.color.holo_orange_light,
-//                android.R.color.holo_red_light);
-//
-//    }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
