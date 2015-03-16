@@ -3,10 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.codepath.apps.StyliiisSimpleTweets.activities.TimeLineActivity">
     <item
+        android:id="@+id/miProfile"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"
+        android:onClick="onProfileView"></item>
+
+    <item
         android:id="@+id/miCompose"
         android:icon="@drawable/ic_compose"
-        app:showAsAction="ifRoom"
         android:onClick="launchComposeTweet"
-        android:title="Compose">
-    </item>
+        android:title="Compose"
+        app:showAsAction="ifRoom"></item>
 </menu>

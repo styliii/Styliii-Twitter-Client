@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.scribe.builder.api.Api;
@@ -60,12 +61,32 @@ public class TwitterClient extends OAuthBaseClient {
         String apiURL = getApiUrl("account/verify_credentials.json");
         getClient().get(apiURL, null, handler);
     }
-	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
-	 * 	  i.e getApiUrl("statuses/home_timeline.json");
-	 * 2. Define the parameters to pass to the request (query or body)
-	 *    i.e RequestParams params = new RequestParams("foo", "bar");
-	 * 3. Define the request method and make a call to the client
-	 *    i.e client.get(apiUrl, params, handler);
-	 *    i.e client.post(apiUrl, params, handler);
-	 */
+
+    public void getMentionsTimeline(long max_id, JsonHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+        RequestParams params = new RequestParams();
+        params.put("count", 25);
+//        if (max_id != 0) {
+//            params.put("max_id", max_id);
+//        }
+        getClient().get(apiUrl, params, handler);
+    }
+
+    public void getUserTimeline(String screenName, long max_id, JsonHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/user_timeline.json");
+        RequestParams params = new RequestParams();
+        params.put("count", 25);
+        params.put("screen_name", screenName);
+//        if (max_id != 0) {
+//            params.put("max_id", max_id);
+//        }
+        getClient().get(apiUrl, params, handler);
+    }
+
+    public void getUserInfo(String screenName, JsonHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("users/show.json");
+        RequestParams params = new RequestParams();
+        params.put("screen_name", screenName);
+        getClient().get(apiUrl, params, handler);
+    }
 }

@@ -10,5 +10,7 @@
     <string name="new_tweet">What\'s happening?</string>
     <string name="title_activity_compose_tweet">ComposeTweetActivity</string>
     <string name="tweet">tweet</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

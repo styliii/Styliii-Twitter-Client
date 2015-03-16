@@ -13,13 +13,19 @@ import java.util.List;
 @Table(name="Users")
 public class User extends Model {
     @Column(name="remote_id", unique=true, onUniqueConflict = Column.ConflictAction.REPLACE)
-    public long remoteId;
+    private long remoteId;
     @Column(name="Name")
-    public String name;
+    private String name;
     @Column(name="ScreenName")
-    public String screenName;
+    private String screenName;
     @Column(name="ProfileImageUrl")
-    public String profileImageUrl;
+    private String profileImageUrl;
+    @Column(name="Tagline")
+    private String tagline;
+    @Column(name="FollowersCount")
+    private int followersCount;
+    @Column(name="FollowingCount")
+    private int followingCount;
 
     public User() {
         super();
@@ -28,23 +34,21 @@ public class User extends Model {
     public List<Tweet> tweets() {
         return getMany(Tweet.class, "User");
     }
-
     public String getName() {
         return name;
     }
-
     public long getRemoteId() {
         return remoteId;
     }
-
     public String getScreenName() {
         return screenName;
     }
-
     public String getProfileImageUrl() {
         return profileImageUrl;
     }
-
+    public String getTagline() { return tagline; }
+    public int getFollowersCount() { return followersCount; }
+    public int getFollowingCount() {  return followingCount; }
 
     public static User findOrCreateFromJsonObject(JSONObject json) {
         User u = new User();
@@ -58,12 +62,25 @@ public class User extends Model {
                 u.remoteId = json.getLong("id");
                 u.screenName = json.getString("screen_name");
                 u.profileImageUrl = json.getString("profile_image_url");
+                u.tagline = json.getString("description");
+                u.followersCount = json.getInt("followers_count");
+                u.followingCount = json.getInt("friends_count");
                 u.save();
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        return u;
+    }
+
+    public static User findByScreenName(String screenName) {
+        User u = null;
+        if (screenName != null) {
+            u = new Select().from(User.class)
+                    .where("screenName = ?", screenName).executeSingle();
+
+        }
         return u;
     }
 }

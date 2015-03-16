@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/classes-da239ea766cfc3502e2379c9ce92af34f46a1154.jar" />
+    </item>
+    <item
         jar="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -14,13 +21,6 @@
         revision="21.1.2"
         sha1="10901a5ef726eacf1b2443b7f38dc4cc9cd3f7d4">
         <dex dex="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/codepath-utils-0c3b2d662ffaac34c1d7914b1f31e2f89d63e2ee.jar" />
-    </item>
-    <item
-        jar="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/libs/android-support-v4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="efec67655f6db90757faa37201efcee2a9ec3507">
-        <dex dex="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/android-support-v4-b7a33308c1fb48a45ca6e55b96cec94711ebbb93.jar" />
     </item>
     <item
         jar="/Users/liouyang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
@@ -56,13 +56,6 @@
         revision="21.1.2"
         sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
         <dex dex="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-52a45ba0a08899f59c8a3c034c6d8279101a5235.jar" />
-    </item>
-    <item
-        jar="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/libs/android-support-v13.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="41c6fb0537e463f685d3235fc50d38dc540d6ece">
-        <dex dex="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/build/intermediates/pre-dexed/debug/android-support-v13-38e8c44c07aab3e1e3e273ce001e3a3943342d80.jar" />
     </item>
     <item
         jar="/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/libs/codepath-oauth-0.4.1.jar"

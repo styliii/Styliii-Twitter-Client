@@ -13,10 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codepath.apps.StyliiisSimpleTweets.R;
 import com.codepath.apps.StyliiisSimpleTweets.TwitterApplication;
 import com.codepath.apps.StyliiisSimpleTweets.TwitterClient;
+import com.codepath.apps.StyliiisSimpleTweets.helpers.NetworkUtility;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
@@ -62,24 +64,28 @@ public class ComposeTweetActivity extends ActionBarActivity {
 
     public void submitTweet() {
         String tweetMsg = etTweetBody.getText().toString();
-        client.postTweet(tweetMsg, new JsonHttpResponseHandler() {
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d("Debug", response.toString());
-                Intent data = new Intent();
-                try {
-                    data.putExtra("tweetId", response.getString("id"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                setResult(RESULT_OK, data);
-                finish();
-            }
+        if (NetworkUtility.isNetworkAvailable(this)) {
+            client.postTweet(tweetMsg, new JsonHttpResponseHandler() {
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("DEBUG", errorResponse.toString());
-            }
-        });
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    Log.d("Debug", response.toString());
+                    Intent data = new Intent();
+                    try {
+                        data.putExtra("tweetId", response.getString("id"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    setResult(RESULT_OK, data);
+                    finish();
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                    Toast.makeText(ComposeTweetActivity.this, errorResponse.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

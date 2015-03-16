@@ -110,4 +110,14 @@ public class Tweet extends Model {
                 .from(Tweet.class)
                 .execute();
     }
+
+    public static Tweet findById(int remoteId) {
+        Tweet tweet = null;
+        if (tweet != null) {
+            tweet = new Select().from(Tweet.class)
+                    .where("remoteId = ?", remoteId).executeSingle();
+
+        }
+        return tweet;
+    }
 }
