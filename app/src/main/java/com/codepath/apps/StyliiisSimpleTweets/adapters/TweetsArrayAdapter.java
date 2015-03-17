@@ -51,7 +51,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         v.handle.setText("@" + tweet.getUser().getScreenName());
         v.user_name.setText(tweet.getUser().getName());
         v.body.setText(tweet.getBody());
-        v.time_ago.setText(tweet.getRelativeTimeAgo().toString());
+        v.time_ago.setText(tweet.getAbbrevTime().toString());
 
         v.profile_image.setImageResource(android.R.color.transparent);
         String profileImageUrl = tweet.getUser().getProfileImageUrl();

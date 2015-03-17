@@ -27,17 +27,17 @@
         android:text="\@styliii"
         android:id="@+id/tvHandle"
         android:textSize="12dp"
-        android:gravity="center_vertical"
-        android:layout_toEndOf="@+id/ivProfileImage"
-        android:layout_below="@+id/tvUserName" />
+        android:layout_alignBottom="@+id/tvUserName"
+        android:layout_toEndOf="@+id/tvUserName"
+        android:layout_marginLeft="2dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="here is my new tweet"
         android:id="@+id/tvTweetBody"
-        android:layout_below="@id/tvHandle"
-        android:layout_alignStart="@+id/tvHandle" />
+        android:layout_below="@+id/tvUserName"
+        android:layout_toEndOf="@+id/ivProfileImage" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,5 +48,53 @@
         android:layout_alignTop="@+id/tvUserName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTweetBody"
+        android:layout_alignStart="@+id/tvTweetBody"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ivReply"
+            android:src="@drawable/ic_action_goleft"
+            android:layout_marginRight="50dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ivRetweet"
+            android:src="@drawable/ic_action_playback_repeat"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="8"
+            android:id="@+id/tvRetweetCount"
+            android:gravity="center_vertical"
+            android:layout_marginRight="45dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ivFavorite"
+            android:src="@drawable/ic_action_star_0"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="4"
+            android:id="@+id/tvFavorites"
+            android:gravity="center_vertical" />
+    </LinearLayout>
 
 </RelativeLayout><!-- From: file:/Users/liouyang/Development/code/side_projects/code_path/Styliii-Twitter-Client/app/src/main/res/layout/item_tweet.xml -->
