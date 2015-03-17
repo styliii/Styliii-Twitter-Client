@@ -349,10 +349,13 @@ int drawable abc_textfield_search_default_mtrl_alpha 0x7f020031
 int drawable abc_textfield_search_material 0x7f020032
 int drawable background_tab 0x7f020033
 int drawable ic_compose 0x7f020034
-int drawable ic_launcher 0x7f020035
-int drawable ic_profile 0x7f020036
-int drawable ic_twitter_icon 0x7f020037
-int drawable kayaking 0x7f020038
+int drawable ic_fav 0x7f020035
+int drawable ic_favorite 0x7f020036
+int drawable ic_launcher 0x7f020037
+int drawable ic_profile 0x7f020038
+int drawable ic_retweet 0x7f020039
+int drawable ic_twitter_icon 0x7f02003a
+int drawable kayaking 0x7f02003b
 int id action_bar 0x7f080033
 int id action_bar_activity_content 0x7f080000
 int id action_bar_container 0x7f080032

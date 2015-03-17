@@ -1404,10 +1404,13 @@ containing a value of this type.
         public static final int abc_textfield_search_material=0x7f020032;
         public static final int background_tab=0x7f020033;
         public static final int ic_compose=0x7f020034;
-        public static final int ic_launcher=0x7f020035;
-        public static final int ic_profile=0x7f020036;
-        public static final int ic_twitter_icon=0x7f020037;
-        public static final int kayaking=0x7f020038;
+        public static final int ic_fav=0x7f020035;
+        public static final int ic_favorite=0x7f020036;
+        public static final int ic_launcher=0x7f020037;
+        public static final int ic_profile=0x7f020038;
+        public static final int ic_retweet=0x7f020039;
+        public static final int ic_twitter_icon=0x7f02003a;
+        public static final int kayaking=0x7f02003b;
     }
     public static final class id {
         public static final int action_bar=0x7f080033;

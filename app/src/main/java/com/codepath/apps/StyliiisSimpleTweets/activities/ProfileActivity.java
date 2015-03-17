@@ -1,6 +1,8 @@
 package com.codepath.apps.StyliiisSimpleTweets.activities;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -17,6 +19,10 @@ public class ProfileActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         String screenName = getIntent().getStringExtra("screen_name");
+        if (screenName == null) {
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+            screenName = pref.getString("screen_name", "");
+        }
         getSupportActionBar().setTitle("@" + screenName);
 
         ProfileHeaderFragment profileHeaderFragment = ProfileHeaderFragment.newInstance(screenName);
