@@ -6,10 +6,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.codepath.apps.StyliiisSimpleTweets.EndlessScrollListener;
 import com.codepath.apps.StyliiisSimpleTweets.R;
 import com.codepath.apps.StyliiisSimpleTweets.TwitterApplication;
 import com.codepath.apps.StyliiisSimpleTweets.TwitterClient;
@@ -25,36 +23,24 @@ public class MentionsTimeLineFragment extends TweetsListFragment {
     private TwitterClient client;
     private SwipeRefreshLayout swipeContainer;
     private View view;
+    private String screenName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         client = TwitterApplication.getRestClient();
-        populateTimeLine(0);
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = super.onCreateView(inflater, container, savedInstanceState);
-        ListView lvTweets = (ListView) view.findViewById(R.id.lvTweets);
-        lvTweets.setOnScrollListener(new EndlessScrollListener() {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount) {
-                Tweet last_tweet = getLastTweet();
-                Toast.makeText(getActivity(), "loading more now", Toast.LENGTH_SHORT).show();
-                if (last_tweet == null) {
-                    populateTimeLine(0);
-                } else {
-                    populateTimeLine(last_tweet.getRemoteId());
-                }
-            }
-        });
-        setupSwipeContainer();
+        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
         return view;
     }
 
 
-    private void populateTimeLine(long last_id) {
+    @Override
+    public void populateTimeLine(long last_id, String screenName) {
         if (last_id == 0) {
             clear();
         } else {
@@ -83,20 +69,6 @@ public class MentionsTimeLineFragment extends TweetsListFragment {
             swipeContainer.setRefreshing(false);
             hideProgressBar();
         }
-
-    }
-    private void setupSwipeContainer() {
-        swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.swipeContainer);
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                populateTimeLine(0);
-            }
-        });
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
 
     }
 }
